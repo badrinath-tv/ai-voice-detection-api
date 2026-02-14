@@ -1,4 +1,23 @@
-venv/
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# Environment variables
 .env
+
+# Dataset (VERY IMPORTANT)
+dataset/
+
+# Audio files
+*.mp3
+*.flac
+*.wav
+
+# OS files
+.DS_Store
+Thumbs.db
