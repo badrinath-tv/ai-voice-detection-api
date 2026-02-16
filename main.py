@@ -89,9 +89,10 @@ def voice_detection(payload: dict, x_api_key: str = Header(None)):
     for field in required_fields:
         if field not in payload:
             raise HTTPException(status_code=400, detail=f"Missing field: {field}")
+    
+    if payload["audioFormat"].lower() not in ["mp3", "flac"]:
+        raise HTTPException(status_code=400, detail="Only mp3 or flac supported")
 
-    if payload["audioFormat"].lower() != "mp3":
-        raise HTTPException(status_code=400, detail="Only MP3 format supported")
 
     # 🔓 Decode Base64 Audio
     try:
